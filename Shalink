@@ -1,0 +1,28 @@
+https://github.com/shalinikshalu/legalEase-AI.gitimport streamlit as st
+
+st.set_page_config(page_title="LegalEase-AI", page_icon="⚖️", layout="centered")
+
+st.title("⚖️ LegalEase-AI")
+st.markdown("### Complex Legal Document-a Simple-a Puriya Vaikum AI")
+
+st.divider()
+
+text = st.text_area("📄 Legal Text-a Inga Paste Pannunga:", height=250, placeholder="Ex: This agreement is made between...")
+
+col1, col2 = st.columns(2)
+with col1:
+    lang = st.selectbox("Language:", ["Tamil + English", "English Only", "Tamil Only"])
+with col2:
+    mode = st.selectbox("Mode:", ["Simple Explanation", "Risk Points", "Summary"])
+
+if st.button("✨ Simplify Pannu", use_container_width=True):
+    if not text:
+        st.warning("Mudhal-la text paste pannunga!")
+    else:
+        with st.spinner("AI Yosikuthu..."):
+            st.success("✅ Simplified Result")
+            
+            if mode == "Simple Explanation":
+                st.markdown(f"""
+                **Original Text:** {len(text)} words
+                **Simple Meaning:**
